@@ -1,0 +1,342 @@
+/*
+-------------------- Front-end Style Guide --------------------
+
+---------- Layout ----------
+
+The designs were created to the following widths:
+- Mobile: 375px
+- Desktop: 1440px
+
+> These are just the design sizes. Ensure content is responsive and meets 
+WCAG requirements by testing the full range of screen sizes from 320px to large screens.
+
+-------------------- Colors --------------------
+
+---------- Primary ----------
+
+---------- Text ----------
+
+- Very dark desaturated blue: hsl(238, 29%, 16%)
+- Soft red: hsl(14, 88%, 65%)
+
+---------- Gradient ----------
+
+Background gradient:
+
+- Soft violet: hsl(273, 75%, 66%)
+- Soft blue: hsl(240, 73%, 65%)
+
+---------- Neutral ----------
+
+---------- Text ----------
+
+- Very dark grayish blue: hsl(237, 12%, 33%)
+- Dark grayish blue: hsl(240, 6%, 50%)
+
+---------- Dividers ----------
+
+- Light grayish blue: hsl(240, 5%, 91%)
+
+---------- Typography ----------
+
+- Font size: 12px
+
+---------- Font ----------
+
+- Family: [Kumbh Sans](https://fonts.google.com/specimen/Kumbh+Sans)
+- Weights: 400, 700
+
+*/
+
+:root {
+    /* Primary Colors */
+    --very-dark-desaturated-blue: hsl(238, 29%, 16%);
+    --soft-red: hsl(14, 88%, 65%);
+    
+    /* Gradient Colors */
+    --soft-violet: hsl(273, 75%, 66%);
+    --soft-blue: hsl(240, 73%, 65%);
+    
+    /* Neutral Colors */
+    --very-dark-grayish-blue: hsl(237, 12%, 33%);
+    --dark-grayish-blue: hsl(240, 6%, 50%);
+    --light-grayish-blue: hsl(240, 5%, 91%);
+    
+    /* Typography */
+    --font-size-body: 12px;
+    --font-family: 'Kumbh Sans', sans-serif;
+    --font-weight-regular: 400;
+    --font-weight-bold: 700;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: var(--font-size-body);
+}
+
+body {
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-regular);
+    color: var(--very-dark-grayish-blue);
+    background: linear-gradient(to bottom, var(--soft-violet), var(--soft-blue));
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.card-container {
+    width: 100%;
+    max-width: 92rem;
+    margin: 0 auto;
+}
+
+.card {
+    background: white;
+    border-radius: 2rem;
+    box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    position: relative;
+    min-height: auto;
+    max-width: 92rem;
+    margin: 0 auto;
+}
+
+.card-image {
+    position: relative;
+    height: 10rem;
+    overflow: visible;
+}
+
+.card-image-mobile {
+    position: absolute;
+    top: -1.8rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 24rem;
+    z-index: 2;
+}
+
+.woman-mobile {
+    width: 100%;
+    display: block;
+}
+
+.pattern-mobile {
+    position: absolute;
+    top: 5.8rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 24rem;
+}
+
+.card-image-desktop {
+    display: none;
+}
+
+.card-image-box {
+    display: none;
+}
+
+.card-faq {
+    padding: 8rem 2.4rem 4rem;
+}
+
+.card-title {
+    color: var(--very-dark-desaturated-blue);
+    font-size: 3.2rem;
+    font-weight: var(--font-weight-bold);
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.faq-item {
+    border-bottom: 1px solid var(--light-grayish-blue);
+    padding: 1.8rem 0;
+}
+
+.faq-question {
+    background: none;
+    border: none;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    font-size: 1.3rem;
+    font-weight: var(--font-weight-regular);
+    color: var(--very-dark-grayish-blue);
+    padding: 0;
+    transition: color 0.3s ease;
+}
+
+.faq-question:hover {
+    color: var(--soft-red);
+}
+
+.faq-question.active {
+    font-weight: var(--font-weight-bold);
+    color: var(--very-dark-desaturated-blue);
+}
+
+.faq-arrow {
+    width: 1rem;
+    height: 0.7rem;
+    margin-left: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-arrow {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    color: var(--dark-grayish-blue);
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-top: 0;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 30rem;
+    margin-top: 1.2rem;
+}
+
+.faq-answer p {
+    margin: 0;
+}
+
+.attribution {
+    font-size: 1.1rem;
+    text-align: center;
+    color: white;
+    margin-top: 2rem;
+    padding: 1rem;
+}
+
+.attribution a {
+    color: white;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.attribution a:hover {
+    color: var(--soft-red);
+}
+
+/* Desktop Styles */
+@media (min-width: 992px) {
+    body {
+        padding: 0;
+    }
+    
+    .card {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        min-height: 0;
+        max-width: 82rem;
+        padding: 0;
+        overflow: visible;
+    }
+    
+    .card-image {
+        height: auto;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .card-image-mobile {
+        display: none;
+    }
+    
+    .card-image-desktop {
+        display: block;
+        position: relative;
+        height: 100%;
+        overflow: hidden;
+    }
+    
+    .card-image-woman {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translate(-8.5rem, -50%);
+        z-index: 2;
+        width: 47.2rem;
+    }
+    
+    .woman-desktop {
+        width: 100%;
+        display: block;
+    }
+    
+    .pattern-desktop {
+        position: absolute;
+        top: -30rem;
+        left: -57rem;
+        width: 96rem;
+        height: 200rem;
+        z-index: 1;
+    }
+    
+    .card-image-box {
+        display: block;
+        position: absolute;
+        top: 41.5%;
+        left: -9.5rem;
+        z-index: 3;
+        width: 19.1rem;
+        animation: float 2s ease-in-out infinite;
+    }
+    
+    .card-faq {
+        padding: 6.5rem 9rem 8rem 0;
+        overflow: visible;
+    }
+    
+    .card-title {
+        text-align: left;
+        margin-bottom: 2rem;
+        font-size: 3.2rem;
+    }
+    
+    .faq-item {
+        padding: 1.6rem 0;
+    }
+    
+    .faq-question {
+        font-size: 1.4rem;
+    }
+    
+    .faq-answer {
+        font-size: 1.2rem;
+    }
+    
+    .faq-item.active .faq-answer {
+        margin-top: 1rem;
+    }
+}
+
+/* Floating animation for box */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-1rem);
+    }
+}
+
