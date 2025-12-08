@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Frontend Mentor | Calculator app</title>
+</head>
+<body class="theme-1">
+    <main class="calculator">
+        <!-- Header with title and theme selector -->
+        <header class="header">
+            <h1 class="title">calc</h1>
+            <div class="theme-selector">
+                <span class="theme-label">THEME</span>
+                <div class="theme-switch">
+                    <div class="theme-numbers">
+                        <span>1</span>
+                        <span>2</span>
+                        <span>3</span>
+                    </div>
+                    <div class="theme-toggle">
+                        <button class="theme-btn active" data-theme="1"></button>
+                        <button class="theme-btn" data-theme="2"></button>
+                        <button class="theme-btn" data-theme="3"></button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Calculator display screen -->
+        <div class="screen">
+            <div class="display" id="display">0</div>
+        </div>
+
+        <!-- Calculator buttons -->
+        <div class="keypad">
+            <button class="btn number" data-value="7">7</button>
+            <button class="btn number" data-value="8">8</button>
+            <button class="btn number" data-value="9">9</button>
+            <button class="btn del" id="del">DEL</button>
+            
+            <button class="btn number" data-value="4">4</button>
+            <button class="btn number" data-value="5">5</button>
+            <button class="btn number" data-value="6">6</button>
+            <button class="btn operator" data-operator="+">+</button>
+            
+            <button class="btn number" data-value="1">1</button>
+            <button class="btn number" data-value="2">2</button>
+            <button class="btn number" data-value="3">3</button>
+            <button class="btn operator" data-operator="-">-</button>
+            
+            <button class="btn" data-value=".">.</button>
+            <button class="btn number" data-value="0">0</button>
+            <button class="btn operator" data-operator="/">/</button>
+            <button class="btn operator" data-operator="*">x</button>
+            
+            <button class="btn reset" id="reset">RESET</button>
+            <button class="btn equals" id="equals">=</button>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

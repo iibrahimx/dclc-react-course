@@ -1,0 +1,275 @@
+/* CSS Variables for Theme 1 (Default) */
+:root {
+  /* Theme 1 Colors */
+    --main-bg: hsl(222, 26%, 31%);
+    --keypad-bg: hsl(223, 31%, 20%);
+    --screen-bg: hsl(224, 36%, 15%);
+
+    --key-bg: hsl(225, 21%, 49%);
+    --key-shadow: hsl(224, 28%, 35%);
+
+    --equals-bg: hsl(6, 63%, 50%);
+    --equals-shadow: hsl(6, 70%, 34%);
+
+    --number-bg: hsl(0, 0%, 90%);
+    --number-shadow: hsl(28, 16%, 65%);
+
+    --text-primary: hsl(221, 14%, 31%);
+    --text-secondary: hsl(0, 100%, 100%);
+    --text-screen: hsl(0, 100%, 100%);
+    --text-header: hsl(0, 100%, 100%);
+}
+
+/* Theme 2 */
+.theme-2 {
+    --main-bg: hsl(0, 0%, 90%);
+    --keypad-bg: hsl(0, 5%, 81%);
+    --screen-bg: hsl(0, 0%, 93%);
+
+    --key-bg: hsl(185, 42%, 37%);
+    --key-shadow: hsl(185, 58%, 25%);
+
+    --equals-bg: hsl(25, 98%, 40%);
+    --equals-shadow: hsl(25, 99%, 27%);
+
+    --number-bg: hsl(0, 0%, 90%);
+    --number-shadow: hsl(35, 11%, 61%);
+
+    --text-primary: hsl(60, 10%, 19%);
+    --text-secondary: hsl(0, 100%, 100%);
+    --text-screen: hsl(60, 10%, 19%);
+    --text-header: hsl(60, 10%, 19%);
+}
+
+/* Theme 3 */
+.theme-3 {
+    --main-bg: hsl(268, 75%, 9%);
+    --keypad-bg: hsl(268, 71%, 12%);
+    --screen-bg: hsl(268, 71%, 12%);
+
+    --key-bg: hsl(281, 89%, 26%);
+    --key-shadow: hsl(285, 91%, 52%);
+
+    --equals-bg: hsl(176, 100%, 44%);
+    --equals-shadow: hsl(177, 92%, 70%);
+
+    --number-bg: hsl(268, 47%, 21%);
+    --number-shadow: hsl(290, 70%, 36%);
+
+    --text-primary: hsl(52, 100%, 62%);
+    --text-secondary: hsl(0, 100%, 100%);
+    --text-screen: hsl(52, 100%, 62%);
+    --text-header: hsl(52, 100%, 62%);
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 700;
+    background-color: var(--main-bg);
+    color: var(--text-header);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.calculator {
+    width: 100%;
+    max-width: 540px;
+    margin: 0 auto;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.title {
+    font-size: 32px;
+}
+
+.theme-selector {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.theme-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.theme-switch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.theme-numbers {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.theme-numbers span {
+    font-size: 12px;
+    width: 15px;
+    text-align: center;
+}
+
+.theme-toggle {
+    background-color: var(--keypad-bg);
+    border-radius: 15px;
+    padding: 5px;
+    display: flex;
+    width: 70px;
+    position: relative;
+}
+
+.theme-btn {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+}
+
+.theme-btn.active::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--equals-bg);
+}
+
+/* Calculator display screen */
+.screen {
+    background-color: var(--screen-bg);
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 25px;
+    text-align: right;
+    overflow: hidden;
+}
+
+.display {
+    font-size: 48px;
+    color: var(--text-screen);
+    min-height: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Calculator buttons */
+.keypad {
+    background-color: var(--keypad-bg);
+    border-radius: 10px;
+    padding: 25px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.btn {
+    border: none;
+    border-radius: 10px;
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    cursor: pointer;
+    padding: 15px 10px;
+    transition: transform 0.1s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn:active {
+    transform: translateY(4px);
+}
+
+/* Number buttons */
+.number {
+    background-color: var(--number-bg);
+    color: var(--text-primary);
+    box-shadow: 0 4px var(--number-shadow);
+}
+
+/* Operator buttons */
+.operator {
+    background-color: var(--number-bg);
+    color: var(--text-primary);
+    box-shadow: 0 4px var(--number-shadow);
+}
+
+/* Special buttons */
+.del, .reset {
+    background-color: var(--key-bg);
+    color: var(--text-secondary);
+    box-shadow: 0 4px var(--key-shadow);
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+.equals {
+    background-color: var(--equals-bg);
+    color: var(--text-secondary);
+    box-shadow: 0 4px var(--equals-shadow);
+}
+
+/* Reset and equals button spans */
+.reset {
+    grid-column: span 2;
+}
+
+.equals {
+    grid-column: span 2;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .calculator {
+    max-width: 375px;
+  }
+  
+  .display {
+    font-size: 36px;
+  }
+  
+  .btn {
+    font-size: 28px;
+    padding: 12px 8px;
+  }
+  
+  .del, .reset {
+    font-size: 20px;
+  }
+  
+  .keypad {
+    padding: 20px;
+    gap: 15px;
+  }
+}
