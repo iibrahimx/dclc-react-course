@@ -1,0 +1,331 @@
+/* Reset and Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Colors */
+    --dark-blue: hsl(209, 23%, 22%);
+    --very-dark-blue-bg: hsl(207, 26%, 17%);
+    --very-dark-blue-text: hsl(200, 15%, 8%);
+    --dark-gray: hsl(0, 0%, 52%);
+    --very-light-gray: hsl(0, 0%, 98%);
+    --white: hsl(0, 0%, 100%);
+    
+    /* Typography */
+    --font-family: 'Nunito Sans', sans-serif;
+    --font-size-home: 14px;
+    --font-size-detail: 16px;
+    
+    /* Spacing */
+    --container-padding: 1.5rem;
+    --border-radius: 0.5rem;
+    --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --box-shadow-dark: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-home);
+    transition: background-color 0.3s, color 0.3s;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+/* Themes */
+.light-mode {
+    background-color: var(--very-light-gray);
+    color: var(--very-dark-blue-text);
+}
+
+.light-mode header {
+    background-color: var(--white);
+    box-shadow: var(--box-shadow);
+}
+
+.light-mode .country-card,
+.light-mode .search-box,
+.light-mode select,
+.light-mode .back-button,
+.light-mode .border-country {
+    background-color: var(--white);
+}
+
+.dark-mode {
+    background-color: var(--very-dark-blue-bg);
+    color: var(--white);
+}
+
+.dark-mode header {
+    background-color: var(--dark-blue);
+    box-shadow: var(--box-shadow-dark);
+}
+
+.dark-mode .country-card,
+.dark-mode .search-box,
+.dark-mode select,
+.dark-mode .back-button,
+.dark-mode .border-country {
+    background-color: var(--dark-blue);
+    color: var(--white);
+}
+
+.dark-mode input {
+    background-color: var(--dark-blue);
+    color: var(--white);
+}
+
+.dark-mode input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Header */
+header {
+    padding: 1.5rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+#theme-toggle {
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    padding: 0.5rem;
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    margin: 2.5rem 0;
+}
+
+@media (min-width: 768px) {
+    .controls {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.search-box {
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    width: 100%;
+    max-width: 500px;
+}
+
+.search-box i {
+    color: var(--dark-gray);
+    margin-right: 1rem;
+}
+
+#search {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-family: inherit;
+    font-size: 0.9rem;
+    background: transparent;
+}
+
+.filter {
+    width: 100%;
+    max-width: 200px;
+}
+
+select {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1.5rem center;
+    background-size: 1em;
+}
+
+/* Countries Grid */
+.countries-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(264px, 1fr));
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.loading {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3rem;
+    font-size: 1.2rem;
+}
+
+.country-card {
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.country-card:hover {
+    transform: translateY(-5px);
+}
+
+.country-flag {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.country-info {
+    padding: 1.5rem;
+}
+
+.country-name {
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.country-details p {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.country-details strong {
+    font-weight: 600;
+}
+
+/* Detail Page */
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 2rem;
+    margin: 3rem 0;
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.back-button:hover {
+    transform: translateX(-5px);
+}
+
+.country-detail-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+    .country-detail-container {
+        flex-direction: row;
+        align-items: center;
+        gap: 5rem;
+    }
+}
+
+.detail-flag {
+    width: 100%;
+    max-width: 560px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.detail-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+    .detail-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+    }
+}
+
+.detail-info p {
+    margin-bottom: 0.5rem;
+    font-size: var(--font-size-detail);
+}
+
+.detail-info strong {
+    font-weight: 600;
+}
+
+.border-countries {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.border-countries span {
+    font-weight: 600;
+    margin-right: 1rem;
+}
+
+.border-country {
+    padding: 0.25rem 1rem;
+    border-radius: 3px;
+    box-shadow: var(--box-shadow);
+    font-size: 0.9rem;
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+    transition: transform 0.2s;
+}
+
+.border-country:hover {
+    transform: translateY(-2px);
+}
