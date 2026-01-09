@@ -6,7 +6,7 @@ const ProductGallery = () => {
     <div>
       <img
         src={productImage}
-        alt="Sneaker"
+        alt="Fall Limited Edition Sneakers"
         className="rounded-2xl w-full mb-4"
       />
 

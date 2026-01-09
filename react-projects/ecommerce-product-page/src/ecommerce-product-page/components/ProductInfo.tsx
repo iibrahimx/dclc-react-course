@@ -24,7 +24,7 @@ const ProductInfo = () => {
 
       <div>
         <span className="text-3xl font-bold">$125.00</span>
-        <span className="bg-black text-white font-bold px-2 py-1 rounded-md">
+        <span className="bg-orange-100 text-orange-500 font-bold px-2 py-1 mx-4 rounded-md">
           50%
         </span>
       </div>
