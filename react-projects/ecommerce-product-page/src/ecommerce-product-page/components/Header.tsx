@@ -1,8 +1,13 @@
 import avatarImage from "./assets/images/image-avatar.png";
 import companyLogo from "./assets/images/logo.svg";
 import menuIcon from "./assets/images/icon-menu.svg";
+import cartIcon from "./assets/images/icon-cart.svg";
 
-const Header = () => {
+type HeadProps = {
+  onCartClick: () => void;
+};
+
+const Header = ({ onCartClick }: HeadProps) => {
   return (
     <header className="border-b border-gray-200">
       <div className="mx-auto max-w-6xl px-4 h-20 flex items-center justify-between">
@@ -20,7 +25,14 @@ const Header = () => {
         </div>
 
         <div className="flex items-center gap-6">
-          <button aria-label="Cart">🛒</button>
+          <button
+            onClick={onCartClick}
+            aria-label="Cart"
+            className="cursor-pointer transition-transform duration-300 hover:scale-120 active:scale-110"
+          >
+            <img src={cartIcon} alt="Cart" />
+            {/* 🛒 */}
+          </button>
           <img
             src={avatarImage}
             alt="User avatar"
