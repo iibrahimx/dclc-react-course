@@ -26,11 +26,14 @@ const Header = ({ onCartClick }: HeadProps) => {
 
         <div className="flex items-center gap-6">
           <button
-            onClick={onCartClick}
+            onClick={(e) => {
+              e.stopPropagation();
+              onCartClick();
+            }}
             aria-label="Cart"
-            className="cursor-pointer transition-transform duration-300 hover:scale-120 active:scale-110"
+            className="cart-icon-button cursor-pointer transition-transform duration-300 hover:scale-120 active:scale-110"
           >
-            <img src={cartIcon} alt="Cart" />
+            <img src={cartIcon} alt="Cart" className="pointer-events-none" />
             {/* 🛒 */}
           </button>
           <img

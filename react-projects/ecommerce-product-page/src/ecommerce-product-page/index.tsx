@@ -18,7 +18,13 @@ const EcommerceProductPage = () => {
     <div className="min-h-screen font=[Kumbh Sans] bg-white">
       <Header onCartClick={() => setIsCartOpen((prev) => !prev)} />
 
-      {isCartOpen && <CartDropdown cartItems={cartItems} product={product} />}
+      {isCartOpen && (
+        <CartDropdown
+          cartItems={cartItems}
+          product={product}
+          onClose={() => setIsCartOpen(false)}
+        />
+      )}
 
       <main className="mx-auto max-w-6xl px-4 py-10 grid grid-cols-1 md:grid-cols-2 gap-12">
         <ProductGallery />
