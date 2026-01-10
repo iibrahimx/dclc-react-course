@@ -3,7 +3,11 @@ import minusIcon from "./assets/images/icon-minus.svg";
 import plusIcon from "./assets/images/icon-plus.svg";
 import cartIcon from "./assets/images/icon-cart.svg";
 
-const ProductInfo = () => {
+type ProductInfoProps = {
+  onAddToCart: (quantity: number) => void;
+};
+
+const ProductInfo = ({ onAddToCart }: ProductInfoProps) => {
   const [quantity, setQuantity] = useState(0);
 
   return (
@@ -50,7 +54,13 @@ const ProductInfo = () => {
           </button>
         </div>
 
-        <button className="flex items-center justify-center bg-orange-500 hover:bg-orange-600 text-black font-bold rounded-lg py-4 hover:shadow-lg hover:shadow-orange-200 cursor-pointer">
+        <button
+          onClick={() => {
+            onAddToCart(quantity);
+            setQuantity(0);
+          }}
+          className="flex items-center justify-center bg-orange-500 hover:bg-orange-600 text-black font-bold rounded-lg py-4 hover:shadow-lg hover:shadow-orange-200 cursor-pointer"
+        >
           <img src={cartIcon} alt="Cart icon" className="px-3 brightness-0" />
           Add to cart
         </button>

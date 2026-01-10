@@ -53,14 +53,14 @@ const CartDropdown = ({ cartItems, product, onClose }: Props) => {
               <p className="text-gray-500">{product.name}</p>
               <p>
                 ${product.price} x {cartItems[0].quantity}
-                <span className="font-bold">
+                <span className="font-bold ml-2">
                   ${product.price * cartItems[0].quantity}
                 </span>
               </p>
             </div>
           </div>
 
-          <button className="mt-4 w-full bg-orange-500 text-black font-bold py-3 rounded-lg">
+          <button className="mt-4 w-full bg-orange-500 text-white font-bold py-3 rounded-lg">
             Checkout
           </button>
         </div>
