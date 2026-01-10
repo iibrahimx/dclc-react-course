@@ -16,7 +16,7 @@ const Header = ({ onCartClick, onMenuClick }: HeadProps) => {
           <img
             src={menuIcon}
             alt="Menu icon"
-            className="md:hidden"
+            className="md:hidden cursor-pointer"
             onClick={onMenuClick}
           />
           <img src={companyLogo} alt="Company logo" />
