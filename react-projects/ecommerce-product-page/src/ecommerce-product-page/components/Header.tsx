@@ -5,14 +5,20 @@ import cartIcon from "./assets/images/icon-cart.svg";
 
 type HeadProps = {
   onCartClick: () => void;
+  onMenuClick: () => void;
 };
 
-const Header = ({ onCartClick }: HeadProps) => {
+const Header = ({ onCartClick, onMenuClick }: HeadProps) => {
   return (
     <header className="border-b border-gray-200">
       <div className="mx-auto max-w-6xl px-4 h-20 flex items-center justify-between">
         <div className="flex items-center gap-10">
-          <img src={menuIcon} alt="Menu icon" className="md:hidden" />
+          <img
+            src={menuIcon}
+            alt="Menu icon"
+            className="md:hidden"
+            onClick={onMenuClick}
+          />
           <img src={companyLogo} alt="Company logo" />
           {/* <h1 className="text-2xl font-bold">Sneakers</h1> */}
           <nav className="hidden md:flex gap-6 text-gray-500">
