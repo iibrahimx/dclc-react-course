@@ -1,5 +1,11 @@
+import EcommerceProductPage from "./pages/ecommerce-product-page";
+
 function App() {
-  return <div>App</div>;
+  return (
+    <div>
+      <EcommerceProductPage />
+    </div>
+  );
 }
 
 export default App;
