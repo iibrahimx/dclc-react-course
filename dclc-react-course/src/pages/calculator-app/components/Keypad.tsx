@@ -3,6 +3,11 @@ import Button from "./Button";
 
 type KeypadProps = {
   theme: Theme;
+  onDigit: (digit: string) => void;
+  onOperator: (op: "+" | "-" | "x" | "/") => void;
+  onEqual: () => void;
+  onDelete: () => void;
+  onReset: () => void;
 };
 
 const keys = [
@@ -26,8 +31,27 @@ const keys = [
   "=",
 ];
 
-export default function Keypad({ theme }: KeypadProps) {
+export default function Keypad({
+  theme,
+  onDelete,
+  onReset,
+  onEqual,
+  onOperator,
+  onDigit,
+}: KeypadProps) {
   const wideKeys = ["RESET", "="];
+
+  function handleClick(key: string) {
+    if (key === "DEL") return onDelete();
+    if (key === "RESET") return onReset();
+    if (key === "=") return onEqual();
+
+    if (["+", "-", "x", "/"].includes(key)) {
+      return onOperator(key as "+" | "-" | "x" | "/");
+    }
+
+    return onDigit(key);
+  }
 
   return (
     <div
@@ -36,7 +60,7 @@ export default function Keypad({ theme }: KeypadProps) {
     >
       {keys.map((key) => (
         <div key={key} className={wideKeys.includes(key) ? "col-span-2" : ""}>
-          <Button label={key} theme={theme} />
+          <Button label={key} theme={theme} onClick={() => handleClick(key)} />
         </div>
       ))}
     </div>

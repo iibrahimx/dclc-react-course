@@ -2,18 +2,16 @@ import { type Theme, themes } from "../theme/theme";
 
 type ScreenProps = {
   theme: Theme;
+  value: string;
 };
 
-export default function Screen({ theme }: ScreenProps) {
+export default function Screen({ theme, value }: ScreenProps) {
   return (
     <div
       className="text-right text-4xl font-bold rounded-lg p-6 mb-6"
-      style={{
-        backgroundColor: themes[theme].screenBg,
-        color: themes[theme].text,
-      }}
+      style={{ backgroundColor: themes[theme].screenBg }}
     >
-      399,981
+      {value}
     </div>
   );
 }
