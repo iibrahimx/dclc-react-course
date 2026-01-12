@@ -1,4 +1,9 @@
+import { type Theme, themes } from "../theme/theme";
 import Button from "./Button";
+
+type KeypadProps = {
+  theme: Theme;
+};
 
 const keys = [
   "7",
@@ -21,9 +26,12 @@ const keys = [
   "=",
 ];
 
-export default function Keypad() {
+export default function Keypad({ theme }: KeypadProps) {
   return (
-    <div className="bg-[hsl(223,31%,20%)] p-6 rounded-lg grid grid-cols-4 gap-4">
+    <div
+      className="p-6 rounded-lg grid grid-cols-4 gap-4"
+      style={{ backgroundColor: themes[theme].keypadBg }}
+    >
       {keys.map((key) => (
         <Button key={key} label={key} />
       ))}
