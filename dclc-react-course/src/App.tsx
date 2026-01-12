@@ -1,9 +1,9 @@
-import CalculatorApp from "./pages/calculator-app";
+import EcommerceProductPage from "./pages/ecommerce-product-page";
 
 function App() {
   return (
     <div>
-      <CalculatorApp />
+      <EcommerceProductPage />
     </div>
   );
 }

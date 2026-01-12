@@ -1,7 +1,7 @@
-import avatarImage from "./assets/images/image-avatar.png";
-import companyLogo from "./assets/images/logo.svg";
-import menuIcon from "./assets/images/icon-menu.svg";
-import cartIcon from "./assets/images/icon-cart.svg";
+import avatarImage from "../assets/images/image-avatar.png";
+import companyLogo from "../assets/images/logo.svg";
+import menuIcon from "../assets/images/icon-menu.svg";
+import cartIcon from "../assets/images/icon-cart.svg";
 
 type HeadProps = {
   onCartClick: () => void;

@@ -1,7 +1,7 @@
 import { useState } from "react";
-import minusIcon from "./assets/images/icon-minus.svg";
-import plusIcon from "./assets/images/icon-plus.svg";
-import cartIcon from "./assets/images/icon-cart.svg";
+import minusIcon from "../assets/images/icon-minus.svg";
+import plusIcon from "../assets/images/icon-plus.svg";
+import cartIcon from "../assets/images/icon-cart.svg";
 
 type ProductInfoProps = {
   onAddToCart: (quantity: number) => void;

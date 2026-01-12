@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { images } from "./data/images";
+import { images } from "../data/images";
 
 type Props = {
   initialIndex: number;
