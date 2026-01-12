@@ -24,16 +24,22 @@ export default function Header({ theme, setTheme }: HeaderProps) {
             ))}
           </div>
 
-          <div className="w-16 h-6 rounded-full bg-black/30 flex items-center px-1">
-            {themes.map((t) => (
-              <button
-                key={t}
-                onClick={() => setTheme(t)}
-                className={`w-4 h-4 rounded-full cursor-pointer ${
-                  theme === t ? "bg-red-500" : "bg-transparent"
-                }`}
-              />
-            ))}
+          <div role="group" aria-label="Theme selector">
+            <div className="relative w-16 h-6 rounded-full bg-black/20 flex items-center">
+              {themes.map((t) => (
+                <button
+                  key={t}
+                  onClick={() => setTheme(t)}
+                  aria-checked={theme === t}
+                  role="radio"
+                  className={`z-10 w-4 h-4 mx-1 rounded-full transition-colors cursor-pointer ${
+                    theme === t
+                      ? "bg-red-500"
+                      : "bg-transparent hover:bg-white/10"
+                  }`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>

@@ -16,6 +16,23 @@ export default function CalculatorApp() {
     saveTheme(theme);
   }, [theme]);
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key >= "0" && e.key <= "9") inputDigit(e.key);
+      if (e.key === ".") inputDigit(".");
+      if (["+", "-", "*", "/"].includes(e.key)) {
+        const op = e.key === "*" ? "x" : e.key;
+        chooseOperator(op as never);
+      }
+      if (e.key === "Enter" || e.key === "=") evaluate();
+      if (e.key === "Backspace") deleteDigit();
+      if (e.key === "Escape") reset();
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [inputDigit, chooseOperator, evaluate, deleteDigit, reset]);
+
   return (
     <div
       className="min-h-screen flex items-center justify-center"

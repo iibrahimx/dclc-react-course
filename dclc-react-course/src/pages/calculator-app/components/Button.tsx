@@ -18,39 +18,50 @@ function getVariant(label: string): ButtonVariant {
 export default function Button({ label, theme, onClick }: ButtonProps) {
   const variant = getVariant(label);
 
+  const getAriaLabel = (lbl: string) => {
+    if (lbl === "DEL") return "Delete last digit";
+    if (lbl === "RESET") return "Reset calculator";
+    if (lbl === "=") return "Calculate result";
+    if (lbl === "x") return "multiply";
+    return lbl;
+  };
+
   const styles = {
     number: {
-      bg: "hsl(0, 0%, 90%)",
-      shadow: "hsl(28, 16%, 65%)",
-      text: themes[theme].text,
-    },
-    operator: {
-      bg: "hsl(0, 0%, 90%)",
-      shadow: "hsl(28, 16%, 65%)",
-      text: themes[theme].text,
+      bg: themes[theme].keyNumBg,
+      shadow: themes[theme].keyNumShadow,
+      text:
+        theme === "theme3"
+          ? themes[theme].textMain
+          : themes[theme].textSecondary,
     },
     action: {
-      bg: "hsl(225, 21%, 49%)",
-      shadow: "hsl(224, 28%, 35%)",
+      bg: themes[theme].keyResetBg,
+      shadow: themes[theme].keyResetShadow,
       text: "white",
     },
     equals: {
-      bg: "hsl(6, 63%, 50%)",
-      shadow: "hsl(6, 70%, 34%)",
-      text: "white",
+      bg: themes[theme].keyEqualBg,
+      shadow: themes[theme].keyEqualShadow,
+      text: theme === "theme3" ? themes[theme].textAccent : "white",
+    },
+
+    operator: {
+      bg: themes[theme].keyNumBg,
+      shadow: themes[theme].keyNumShadow,
+      text: themes[theme].textMain,
     },
   };
-
-  const style = styles[variant];
 
   return (
     <button
       onClick={onClick}
-      className="h-14 rounded-lg text-xl font-bold active:translate-y-1 w-full"
+      aria-label={getAriaLabel(label)}
+      className="h-14 rounded-lg text-xl font-bold active:translate-y-1 w-full cursor-pointer"
       style={{
-        backgroundColor: style.bg,
-        boxShadow: `0 4px ${style.shadow}`,
-        color: style.text,
+        backgroundColor: styles[variant].bg,
+        boxShadow: `0 4px ${styles[variant].shadow}`,
+        color: styles[variant].text,
       }}
     >
       {label}
