@@ -1,4 +1,5 @@
 import type { Comment } from "../types/comment";
+import ReplyCard from "./ReplyCard";
 import ScoreCounter from "./ScoreCounter";
 
 type Props = {
@@ -32,6 +33,13 @@ const CommentCard = ({ comment }: Props) => {
           Reply
         </button>
       </div>
+      {comment.replies.length > 0 && (
+        <div className="mt-4 space-y-4">
+          {comment.replies.map((reply) => (
+            <ReplyCard key={reply.id} reply={reply} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

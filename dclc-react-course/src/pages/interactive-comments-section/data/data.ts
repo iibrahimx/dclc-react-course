@@ -26,6 +26,21 @@ export const initialComments: Comment[] = [
         webp: amyrobsonWebp,
       },
     },
-    replies: [],
+    replies: [
+      {
+        id: 2,
+        content: "I totally agree with you!",
+        createdAt: "2 weeks ago",
+        score: 5,
+        replyingTo: "amyrobson",
+        user: {
+          username: "juliusomo",
+          image: {
+            png: juliusomoPng,
+            webp: juliusomoWebp,
+          },
+        },
+      },
+    ],
   },
 ];
