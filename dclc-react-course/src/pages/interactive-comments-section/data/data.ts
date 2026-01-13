@@ -1,10 +1,14 @@
 import type { Comment, User } from "../types/comment";
+import amyrobsonPng from "../assets/image-amyrobson.png";
+import amyrobsonWebp from "../assets/image-amyrobson.webp";
+import juliusomoPng from "../assets/image-juliusomo.png";
+import juliusomoWebp from "../assets/image-juliusomo.webp";
 
 export const currentUser: User = {
   username: "juliusomo",
   image: {
-    png: "/assets/image-juliusomo.png",
-    webp: "/assets/image-juliusomo.webp",
+    png: juliusomoPng,
+    webp: juliusomoWebp,
   },
 };
 
@@ -18,8 +22,8 @@ export const initialComments: Comment[] = [
     user: {
       username: "amyrobson",
       image: {
-        png: "/assets/image-amyrobson.png",
-        webp: "/assets/image-amyrobson.webp",
+        png: amyrobsonPng,
+        webp: amyrobsonWebp,
       },
     },
     replies: [],
