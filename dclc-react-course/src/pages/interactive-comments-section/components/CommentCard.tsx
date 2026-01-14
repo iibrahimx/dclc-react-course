@@ -2,6 +2,7 @@ import { useState } from "react";
 import type { Comment, User } from "../types/comment";
 import ReplyCard from "./ReplyCard";
 import ScoreCounter from "./ScoreCounter";
+import DeleteModal from "./DeleteModal";
 
 type Props = {
   comment: Comment;
@@ -10,8 +11,11 @@ type Props = {
 
 const CommentCard = ({ comment, currentUser }: Props) => {
   const isOwner = comment.user.username === currentUser.username;
+
   const [isEditing, setIsEditing] = useState(false);
   const [editedContent, setEditedContent] = useState(comment.content);
+
+  const [showDelete, setShowDelete] = useState(false);
 
   return (
     <div className="p-4 bg-white rounded-lg shadow-sm">
@@ -78,7 +82,10 @@ const CommentCard = ({ comment, currentUser }: Props) => {
         ) : isOwner ? (
           /* This replaces <OwnerButtons /> */
           <div className="flex gap-4">
-            <button className="text-red-500 font-medium hover:opacity-70 cursor-pointer">
+            <button
+              onClick={() => setShowDelete(true)}
+              className="text-red-500 font-medium hover:opacity-70 cursor-pointer"
+            >
               Delete
             </button>
             <button
@@ -95,6 +102,16 @@ const CommentCard = ({ comment, currentUser }: Props) => {
           </button>
         )}
       </div>
+
+      {showDelete && (
+        <DeleteModal
+          onCancel={() => setShowDelete(false)}
+          onConfirm={() => {
+            // real delete comes in state lifting step
+            setShowDelete(false);
+          }}
+        />
+      )}
 
       {/* REPLIES */}
       {comment.replies.length > 0 && (
