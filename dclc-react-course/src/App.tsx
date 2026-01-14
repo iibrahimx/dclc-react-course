@@ -8,7 +8,7 @@ import MultiStepForm from "./pages/multi-step-form";
 
 function Home() {
   return (
-    <div>
+    <div className="m-4">
       <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold uppercase text-gray-800 mb-4 underline">
         My React Projects
       </h1>
