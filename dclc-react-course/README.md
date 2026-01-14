@@ -12,8 +12,14 @@
 
 ## Interactive Comments Section
 
-⏳ In progress
+- 🔗 [Live Demo](https://iibrahimx.github.io/dclc-react-course/)
+- - [Source Code](./interactive-comments-section)
 
 ## Multi-step Form
 
-⏳ In progress
+- 🔗 [Live Demo](https://iibrahimx.github.io/dclc-react-course/)
+- - [Source Code](./multi-step-form)
+
+## Using React Routing
+
+This project uses React Router to navigate between completed projects.
