@@ -1,14 +1,14 @@
 import type { Comment, User } from "../types/comment";
 import amyrobsonPng from "../assets/image-amyrobson.png";
-import amyrobsonWebp from "../assets/image-amyrobson.webp";
 import juliusomoPng from "../assets/image-juliusomo.png";
-import juliusomoWebp from "../assets/image-juliusomo.webp";
+import maxblagunPng from "../assets/image-maxblagun.png";
+import ramsesmironPng from "../assets/image-ramsesmiron.png";
 
 export const currentUser: User = {
   username: "juliusomo",
   image: {
     png: juliusomoPng,
-    webp: juliusomoWebp,
+    webp: "",
   },
 };
 
@@ -16,30 +16,63 @@ export const initialComments: Comment[] = [
   {
     id: 1,
     content:
-      "Impressive! Though it seems the drag feature could be improved. But overall it looks incredible.",
+      "Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well.",
     createdAt: "1 month ago",
     score: 12,
     user: {
       username: "amyrobson",
       image: {
         png: amyrobsonPng,
-        webp: amyrobsonWebp,
+        webp: "",
+      },
+    },
+    replies: [],
+  },
+  {
+    id: 2,
+    content:
+      "Woah, your project looks awesome! How long have you been coding for? I'm still new, but think I want to dive into React as well soon. Perhaps you can give me an insight on where I can learn React? Thanks!",
+    createdAt: "2 weeks ago",
+    score: 5,
+    user: {
+      username: "maxblagun",
+      image: {
+        png: maxblagunPng,
+        webp: "",
       },
     },
     replies: [
       {
-        id: 2,
-        content: "I totally agree with you!",
-        createdAt: "2 weeks ago",
-        score: 5,
-        replyingTo: "amyrobson",
+        id: 3,
+        content:
+          "If you're still new, I'd recommend focusing on the fundamentals of HTML, CSS, and JS before considering React. It's very tempting to jump ahead but lay a solid foundation first.",
+        createdAt: "1 week ago",
+        score: 4,
+        replyingTo: "maxblagun",
         user: {
-          username: "juliusomo",
+          username: "ramsesmiron",
           image: {
-            png: juliusomoPng,
-            webp: juliusomoWebp,
+            png: ramsesmironPng,
+            webp: "",
           },
         },
+        replies: [
+          {
+            id: 4,
+            content:
+              "I couldn't agree more with this. Everything moves so fast and it always seems like everyone knows the newest library/framework. But the fundamentals are what stay constant.",
+            createdAt: "2 days ago",
+            score: 2,
+            replyingTo: "ramsesmiron",
+            user: {
+              username: "juliusomo",
+              image: {
+                png: juliusomoPng,
+                webp: "",
+              },
+            },
+          },
+        ],
       },
     ],
   },

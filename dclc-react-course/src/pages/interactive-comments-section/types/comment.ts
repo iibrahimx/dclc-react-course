@@ -13,6 +13,7 @@ export type Reply = {
   score: number;
   replyingTo: string;
   user: User;
+  replies?: Reply[];
 };
 
 export type Comment = {
@@ -21,5 +22,11 @@ export type Comment = {
   createdAt: string;
   score: number;
   user: User;
-  replies: Reply[];
+  replies: Reply[] | CommentItem[];
+};
+
+export type CommentItem = Comment | Reply;
+
+export const isReply = (item: CommentItem): item is Reply => {
+  return "replyingTo" in item;
 };
