@@ -1,6 +1,7 @@
 import React from "react";
 import type { StepProps, AddonId } from "../types";
 import { ADDONS } from "../data";
+import checkmarkIcon from "../assets/images/icon-checkmark.svg";
 
 const Step3AddOns: React.FC<StepProps> = ({
   formData,
@@ -62,7 +63,7 @@ const Step3AddOns: React.FC<StepProps> = ({
                 >
                   {isSelected && (
                     <img
-                      src="/images/icon-checkmark.svg"
+                      src={checkmarkIcon}
                       alt="Selected"
                       className="w-3 h-3"
                     />

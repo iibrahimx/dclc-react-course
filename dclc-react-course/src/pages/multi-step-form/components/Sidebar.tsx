@@ -1,5 +1,8 @@
 import React from "react";
 
+// Import your images
+import bgSidebarDesktop from "../assets/images/bg-sidebar-desktop.svg?url";
+
 interface Step {
   number: number;
   title: string;
@@ -18,7 +21,12 @@ const Sidebar: React.FC<SidebarProps> = ({ currentStep }) => {
   ];
 
   return (
-    <div className="relative bg-sidebar-desktop bg-cover bg-no-repeat rounded-lg p-8 min-h-142 w-68.5">
+    <div
+      className="relative bg-linear-to-br from-purple-200 via-blue-400 to-indigo-700 bg-cover bg-no-repeat rounded-lg p-8 h-full min-h-144 w-64 hidden md:block"
+      style={{
+        backgroundImage: `url(${bgSidebarDesktop})`,
+      }}
+    >
       <div className="flex flex-col gap-8">
         {steps.map((step) => (
           <div key={step.number} className="flex items-center gap-4">

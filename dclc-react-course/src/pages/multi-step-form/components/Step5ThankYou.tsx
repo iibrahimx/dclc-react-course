@@ -1,13 +1,10 @@
 import React from "react";
+import thankYouIcon from "../assets/images/icon-thank-you.svg";
 
 const Step5ThankYou: React.FC = () => {
   return (
     <div className="max-w-md flex flex-col items-center justify-center py-12">
-      <img
-        src="/images/icon-thank-you.svg"
-        alt="Thank you"
-        className="w-16 h-16 mb-6"
-      />
+      <img src={thankYouIcon} alt="Thank you" className="w-16 h-16 mb-6" />
       <h1 className="text-2xl md:text-3xl font-bold text-blue-950 mb-4">
         Thank you!
       </h1>
